@@ -2,7 +2,7 @@ class Application
 
   @@items = ["Apples","Carrots","Pears"]
   @@cart = []
-  
+
   def call(env)
     resp = Rack::Response.new
     req = Rack::Request.new(env)
@@ -28,7 +28,7 @@ class Application
         @@cart << req.params["item"]
         resp.write "We don't have that item"
       end
-    
+
     else
       resp.write "Path Not Found"
     end
